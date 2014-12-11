@@ -25,17 +25,21 @@ public class Board {
         return result;
     }
     
+    public boolean isLegalMove(int row, int col){
+        if((row <= 3 && row > 0) && (col <= 3 && col > 0))
+            return (this.grid[((row-1)*3 + (col-1))]==null);
+        else return false;
+    }
+    
     /*
     Rows start from the top and columns start from the left.  The numbers are 1-based
     meaning 1,2,3 instead of 0,1,2
     */
-    public boolean tryRecordMove(Letter current, int row, int col){
-        int index = (row-1)*3 + col;
-        if(this.grid[index] == null && (row <= 3 && row > 0) && (col <= 3 && col > 0)){
+    public void recordMove(Letter current, int row, int col){
+        int index = (row-1)*3 + (col-1);
+        if(!this.isLegalMove(row,col)){
             this.grid[index] = current;
-            return true;
         }
-        else return false;
     }
     
     
