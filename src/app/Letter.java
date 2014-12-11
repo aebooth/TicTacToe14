@@ -10,14 +10,20 @@ package app;
  * @author alex
  */
 public enum Letter {
-    X(-1),O(1);
+    X(-1,"x"),O(1,"o");
     
-    private int value;
+    private final int value;
+    private final String letter;
     
-    Letter(int value){
+    Letter(int value, String letter){
         this.value = value;
+        this.letter = letter;
     }
     public int value(){
         return this.value;
+    }
+    
+    public String letter(){
+        return this.letter;
     }
 }

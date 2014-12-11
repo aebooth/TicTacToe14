@@ -59,4 +59,8 @@ public class Board {
         }
         return res;
     }
+    
+    public Letter get(int row, int col){
+       return this.grid[(row-1)*3 + (col-1)];
+    }
 }
